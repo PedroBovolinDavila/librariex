@@ -7,6 +7,8 @@ defmodule LibrariexWeb.Router do
 
   scope "/api", LibrariexWeb do
     pipe_through :api
+
+    resources "/users", UsersController, except: [:edit, :new]
   end
 
   # Enables LiveDashboard only for development

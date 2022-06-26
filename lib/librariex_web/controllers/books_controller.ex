@@ -45,4 +45,12 @@ defmodule LibrariexWeb.BooksController do
       |> text("")
     end
   end
+
+  def update(conn, params) do
+    with {:ok, %Book{} = book} <- Librariex.update_book(params) do
+      conn
+      |> put_status(:ok)
+      |> render("update.json", book: book)
+    end
+  end
 end

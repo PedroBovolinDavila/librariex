@@ -10,6 +10,13 @@ defmodule LibrariexWeb.BooksView do
     }
   end
 
+  def render("update.json", %{book: %Book{} = book}) do
+    %{
+      message: "Book updated!",
+      book: book
+    }
+  end
+
   def render("books.json", %{books: books}), do: %{books: books}
   def render("show.json", %{book: %Book{} = book}), do: %{book: book}
 end

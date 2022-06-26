@@ -17,7 +17,7 @@ defmodule LibrariexWeb.UsersView do
     }
   end
 
-  def render("sign_in", %{token: token}) do
+  def render("sign_in.json", %{token: token}) do
     %{
       message: "User logged",
       token: token

@@ -12,6 +12,7 @@ defmodule Librariex do
   defdelegate create_user(params), to: CreateUser, as: :call
   defdelegate get_users(), to: GetUser, as: :call
   defdelegate get_user_by_id(id), to: GetUser, as: :by_id
+  defdelegate get_user_by_email(email), to: GetUser, as: :by_email
   defdelegate delete_user(id), to: DeleteUser, as: :call
   defdelegate update_user(params), to: UpdateUser, as: :call
 

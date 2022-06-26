@@ -24,4 +24,11 @@ defmodule Librariex.Users.Get do
       user -> {:ok, Repo.preload(user, :books)}
     end
   end
+
+  def by_email(email) do
+    case Repo.get_by(User, email: email) do
+      nil -> {:error, Error.user_not_found_error()}
+      user -> {:ok, Repo.preload(user, :books)}
+    end
+  end
 end

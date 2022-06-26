@@ -44,6 +44,7 @@ defmodule Librariex.MixProject do
       {:jason, "~> 1.2"},
       {:plug_cowboy, "~> 2.5"},
       {:pbkdf2_elixir, "~> 2.0"},
+      {:guardian, "~> 2.0"},
 
       # Dev Test
       {:credo, "~> 1.6", only: [:dev, :test], runtime: false}

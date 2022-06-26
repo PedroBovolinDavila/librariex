@@ -3,13 +3,14 @@ defmodule Librariex.User do
   import Ecto.Changeset
 
   alias Ecto.Changeset
+  alias Librariex.Book
 
   @create_params [:name, :email, :password, :age, :address]
   @update_params [:name, :email, :age, :address]
 
   @primary_key {:id, :binary_id, autogenerate: true}
 
-  @derive {Jason.Encoder, only: @update_params ++ [:id]}
+  @derive {Jason.Encoder, only: @update_params ++ [:id, :books]}
 
   schema "users" do
     field :name, :string
@@ -18,6 +19,8 @@ defmodule Librariex.User do
     field :password_hash, :string
     field :age, :integer
     field :address, :string
+
+    has_many :books, Book
 
     timestamps()
   end

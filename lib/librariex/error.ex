@@ -14,4 +14,5 @@ defmodule Librariex.Error do
 
   def invalid_id_format_error, do: build(:bad_request, "Invalid id format!")
   def user_not_found_error, do: build(:not_found, "User not found!")
+  def book_not_found_error, do: build(:not_found, "Book not found!")
 end

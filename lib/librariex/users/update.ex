@@ -20,5 +20,9 @@ defmodule Librariex.Users.Update do
     user
     |> User.changeset(params)
     |> Repo.update()
+    |> handle_update()
   end
+
+  defp handle_update({:ok, %User{} = user}), do: {:ok, Repo.preload(user, :books)}
+  defp handle_update({:error, changeset}), do: {:error, Error.build(:bad_request, changeset)}
 end

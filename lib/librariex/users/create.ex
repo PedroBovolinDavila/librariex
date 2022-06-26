@@ -8,6 +8,11 @@ defmodule Librariex.Users.Create do
     |> handle_insert()
   end
 
-  defp handle_insert({:ok, _user} = result), do: result
+  defp handle_insert({:ok, %User{} = user}) do
+    user = Repo.preload(user, :books)
+
+    {:ok, user}
+  end
+
   defp handle_insert({:error, changeset}), do: {:error, Error.build(:bad_request, changeset)}
 end

@@ -9,6 +9,9 @@ defmodule LibrariexWeb.Router do
     pipe_through :api
 
     resources "/users", UsersController, except: [:edit, :new]
+    resources "/books", BooksController, except: [:edit, :new]
+
+    get "/books/user_id/:id", BooksController, :show_by_user_id
   end
 
   # Enables LiveDashboard only for development

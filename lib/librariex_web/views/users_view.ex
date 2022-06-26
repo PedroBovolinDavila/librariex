@@ -10,13 +10,6 @@ defmodule LibrariexWeb.UsersView do
     }
   end
 
-  def render("delete.json", %{user: %User{} = user}) do
-    %{
-      message: "User deleted!",
-      user: user
-    }
-  end
-
   def render("update.json", %{user: %User{} = user}) do
     %{
       message: "User updated!",

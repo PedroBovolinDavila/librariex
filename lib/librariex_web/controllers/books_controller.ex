@@ -37,4 +37,12 @@ defmodule LibrariexWeb.BooksController do
       |> render("create.json", book: book)
     end
   end
+
+  def delete(conn, %{"id" => id}) do
+    with {:ok, %Book{}} <- Librariex.delete_book(id) do
+      conn
+      |> put_status(:no_content)
+      |> text("")
+    end
+  end
 end

@@ -11,6 +11,8 @@ defmodule LibrariexWeb.Router do
     resources "/users", UsersController, except: [:edit, :new]
     resources "/books", BooksController, except: [:edit, :new]
 
+    post "/users/signin", UsersController, :sign_in
+
     get "/books/user_id/:id", BooksController, :show_by_user_id
   end
 

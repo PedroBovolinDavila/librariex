@@ -14,6 +14,10 @@ config :librariex, Librariex.Repo,
   migration_primary_key: [type: :binary_id],
   migration_foreign_key: [type: :binary_id]
 
+config :librariex, LibrariexWeb.Auth.Guardian,
+  issuer: "librariex",
+  secret_key: "jkq0soRLn1BGGFD87xXYXJ1sxPgCGV7PnaWKgV60azPDBUNzyOxsAy0gDTz3Irvu"
+
 # Configures the endpoint
 config :librariex, LibrariexWeb.Endpoint,
   url: [host: "localhost"],
